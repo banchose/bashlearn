@@ -1,0 +1,12 @@
+#!/bin/bash
+
+ar=("one 1" "two 2" "three 3" "start *")
+
+# Probably unexpected results from word splitting and pathname expansion of the array
+for i in ${ar[@]}; do echo "$i"; done
+
+# Now the echo with cause pathname expansion of the *
+for i in "${ar[@]}"; do echo $i; done
+
+# Results 
+for i in "${ar[@]}"; do echo "$i"; done
